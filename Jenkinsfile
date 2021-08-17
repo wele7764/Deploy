@@ -1,9 +1,15 @@
 pipeline {
     agent any 
     stages {
-        stage('Stage 1') {
+        stage('Build') {
             steps {
-                sh 'python3 -v'
+                echo 'Building..'
+				git 'https://github.com/wele7764/Deploy/test.py.git'
+            }
+        }
+		stage('Python test') {
+            steps {
+                sh 'python3 test.py'
             }
         }
     }
